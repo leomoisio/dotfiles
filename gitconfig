@@ -1,0 +1,38 @@
+# vim: noet:
+[color]
+	ui = true
+[color "grep"]
+	external = --color=always
+[user]
+	name = Leo Moisio
+	email = leo.moisio@gmail.com
+[format]
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	cmd = vim -d $MERGED $BASE $LOCAL $REMOTE
+[alias]
+	sh = show
+	lg = log --pretty=oneline
+	lm = log --pretty=lm
+	st = status
+	sti = status --ignored
+	di = diff
+	id = diff
+	ci = commit
+	co = checkout
+	rb = rebase
+	br = branch
+	s-rev = !git svn info | awk '/^Revision: / { print $2}'
+	s-br = !git svn info | awk -F / '/^URL: / { print $NF }'
+	lc = !git lg $(git svn find-rev r$(git s-rev))..
+	loc = !git log $(git svn find-rev r$(git s-rev))..
+	s-rbi = !git rebase -i $(git s-br)
+	gr = "!f() { git grep --color \"$@\" | grep -v -e .gitignore -e .cvsignore ;}; f"
+[core]
+	editor = vim
+[pretty]
+	lm = %Cgreen%h%Creset %Cred%an%Creset %s
+[credential]
+	helper = cache --timeout 20000
