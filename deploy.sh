@@ -10,7 +10,7 @@ for src in $dotfiles ; do
     dst="$HOME/.$src"
     echo "deploying $src to $dst"
     src="$(pwd)/$src"
-    if [ $(readlink -f "$dst") = "$src" ] ; then
+    if [ $(readlink -f "$dst") = $(readlink -f "$src") ] ; then
         echo -e "\tAlready deployed, skipped."
     elif [ ! -e "$dst" ] ; then
         echo -e "\tFile did not exist previously, creating."
