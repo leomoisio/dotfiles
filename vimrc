@@ -1,4 +1,6 @@
 let g:xml_syntax_folding = 1
+let xterm16_colormap = 'soft'
+let xterm16_brightness	= 'high'
 
 set foldmethod=syntax
 set mouse=a
@@ -18,6 +20,7 @@ set relativenumber
 
 syntax on
 filetype plugin indent on
+color xterm16
 
 au FileType scheme set autoindent expandtab softtabstop=2
 au FileType scheme set lispwords-=if
