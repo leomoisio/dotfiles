@@ -16,7 +16,9 @@ set showmatch
 set sessionoptions=blank,buffers,curdir,help,options,tabpages,winsize
 set diffopt+=vertical
 set modeline
-set relativenumber
+if version >= 703
+    set relativenumber
+endif
 
 syntax on
 filetype plugin indent on
